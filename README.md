@@ -10,7 +10,11 @@ curl -v http://localhost:8080/static/
 ### 支持简单 js 访问
 ![简单 js 访问](images/2.jpg)
 ### 提交表单，并输出一个表格
-![输出表格](images/3.png)
+```
+curl -v -d "username=a&password=a" http://localhost:8080/login
+```
+![输出表格](images/3.0.png)
+![输出表格-浏览器](images/3.png)
 ### 对 ``/unknown`` 给出开发中的提示，返回码 ``5xx``
 ```
 curl -v http://localhost:8080/unknown
