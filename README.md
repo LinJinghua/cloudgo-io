@@ -13,7 +13,7 @@ curl -v http://localhost:8080/static/
 ```
 curl -v -d "username=a&password=a" http://localhost:8080/login
 ```
-![输出表格](images/3.0.png)
+![输出表格](images/3.0.jpg)
 ![输出表格-浏览器](images/3.png)
 ### 对 ``/unknown`` 给出开发中的提示，返回码 ``5xx``
 ```
