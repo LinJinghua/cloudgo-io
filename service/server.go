@@ -32,18 +32,17 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 	if len(webRoot) == 0 {
 		if root, err := os.Getwd(); err != nil {
 			panic("Could not retrive working directory")
-			} else {
-				webRoot = root
-				//fmt.Println(root)
-			}
+		} else {
+			webRoot = root
+			//fmt.Println(root)
 		}
+	}
 
 	mx.NotFoundHandler = NotImplementedHandler()
 	mx.MethodNotAllowedHandler = NotImplementedHandler()
-	mx.HandleFunc("/unknown", http.HandlerFunc(NotImplemented))
 	mx.HandleFunc("/login", loginHandler(formatter))
 	mx.HandleFunc("/", homeHandler(formatter)).Methods("GET")
 	mx.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(webRoot+"/assets/"))))
-	mx.PathPrefix("/").Handler(http.FileServer(http.Dir(webRoot + "/assets/")))
+	// mx.PathPrefix("/").Handler(http.FileServer(http.Dir(webRoot + "/assets/")))
 
 }
